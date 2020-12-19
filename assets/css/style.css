@@ -18,6 +18,14 @@ header {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  position: -webkit-sticky;
+  position: sticky;
+  top:0 ;
+  background-image: url('../images/hero-bg.jpg');
+  background-size: cover;
+  background-position: 80%;
+  background-attachment: fixed;
+  
 }
 
 header h1 {
@@ -25,6 +33,7 @@ header h1 {
   margin: 0;
   font-size: 36px;
   color: #fce138;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 header a {
@@ -48,6 +57,7 @@ header nav ul li a {
   padding: 10px 15px;
   font-weight: lighter;
   font-size: 1.55vw;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5)
 }
 
 /* HEADER / NAVBAR STYLES END */
@@ -89,7 +99,8 @@ section {
 .hero {
   background-image: url('../images/hero-bg.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: 80%;
+  background-attachment: fixed;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -109,15 +120,18 @@ section {
   font-style: italic;
   font-size: 55px;
   color: #fce138;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .hero-form {
   border: 3px solid #024e76;
-  background-color: #fce138;
+  background-color: rgba(252,225,56,0.8);
+  border-radius: 15px;
   padding: 20px;
   color: #024e76;
   width: 40%;
   margin: 3.5%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5)
 }
 
 .hero-form h3 {
@@ -136,6 +150,7 @@ section {
   color: #024e76;
   width: 100%;
   margin-bottom: 15px; 
+  border-radius: 10px;
 }
 
 .hero-form label {
@@ -148,6 +163,7 @@ section {
   border: none;
   padding: 10px 20px;
   font-size: 16px;
+  border-radius: 10px;
 } 
 /* HERO STYLES END */
 
@@ -280,27 +296,29 @@ section {
 }
 /* TRAINER STYLES END */
 
-/* REACH OUT STYLES START */
-
-/* Service Styles Begin */
-.services{
-  background:#fce138;
+/* SERVICE STYLES START */
+.services {
+  background: #fce138; 
 }
-.service-grid-wrapper{
+
+.service-grid-wrapper {
   display: flex;
   width: 100%;
   justify-content: center;
 }
+
 .service-grid-container {
   background: lightyellow;
   width: 80%;
   display: grid;
-  grid-template-columns:1fr repeat(2,4fr);
-  grid-template-rows: repeat(5,1fr) 2fr;
+  /* repeat(iterator, size) */
+  grid-template-columns: 1fr repeat(2, 4fr);
+  grid-template-rows: repeat(5, 1fr) 2fr;
   border: 2px solid #024e76;
-  color: #024e76;
+  color:  #024e76;
   font-size: 1.2rem;
 }
+
 .service-grid-item {
   padding: 15px 0;
   border: 2px solid #024e76;
@@ -309,25 +327,29 @@ section {
   justify-content: center;
   text-align: center;
 }
-.service-grid-item.basic{
-  grid-column: 2/span 1;
+
+.service-grid-item.basic {
+  grid-column: 2 / span 1;
 }
-.service-grid-item.premium{
-  
+
+.service-grid-item.both {
+  grid-column: 2 / span 2;
 }
-.service-grid-item.both{
-  grid-column: 2 /span 2;
-}
-.service-grid-item.cancel{
+
+.service-grid-item.cancel {
   writing-mode: vertical-lr;
-  transform: rotate(180deg);
   grid-column: 1;
-  grid-row: 1/-1;
+  grid-row: 1 / -1;
+  transform: rotate(180deg);
 }
-.grid-head, .grid-price, .service-grid-item.cancel{
+
+.grid-head, .grid-price, .service-grid-item.cancel {
   font-size: 1.5rem;
   font-weight: bold;
 }
+/* SERVICE STYLES END */
+
+/* REACH OUT STYLES START */
 .contact {
   background: #024e76;
 }
@@ -376,6 +398,7 @@ section {
   width: 100%;
   margin-bottom: 15px;
   margin-top: 5px;
+  border-radius: 10px;
 }
 
 .contact-form button {
@@ -386,6 +409,7 @@ section {
   text-align: center;
   padding: 15px 0;
   font-size: 16px;
+  border-radius: 10px;
 }
 
 .contact-info a {
@@ -407,106 +431,131 @@ section {
 .flex-row {
   display: flex;
 }
-/* Media Query For Smaller Desktop Screens and Smaller */
+
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
 @media screen and (max-width: 980px) {
   header {
     padding-bottom: 0;
     justify-content: center;
+    position: relative;
   }
+
   header h1 {
     width: 100%;
-    text-align: center ;
+    text-align: center;
   }
+
   header nav ul {
     margin-top: 20px;
     width: 100%;
     justify-content: center;
   }
-  header nav ul li a{
+
+  header nav ul li a {
     font-size: 20px;
   }
-  .hero-cta, .hero-form{
+
+  footer h2, footer div {
+    text-align: center;
     width: 100%;
   }
-  .hero-cta{
-    text-align: center;
-  }
-  .section-title{
-    width: 80%;
-  }
-  .trainer {
-    flex: 0 70%;
-  }
-  .contact-info iframe{
-    flex: 1 100%;
-  }
-  footer h2, footer div{
-    text-align: center;
+
+  .hero-cta, .hero-form {
     width: 100%;
   }
   
+  .hero-cta {
+    text-align: center;
+  }
+
+  .section-title {
+    width: 80%;
+  }
+  
+  .trainer {
+    flex: 0 70%;
+  }
+  
+  .contact-info iframe{
+    flex: 1 100%;
+  }
 }
 
-/*Media Query For Tablets and Smaller */
-@media screen and (max-width: 768px){
+/* MEDIA QUERY FOR TABLETS AND SMALLER */
+@media screen and (max-width: 768px) {
   section {
     padding: 30px 15px;
   }
-  .steps h3{
+
+  .step h3 {
     flex: 1 100%;
     text-align: center;
   }
-  .steps-info{
+
+  .step-info {
     flex: 2 100%;
     text-align: center;
     justify-content: center;
   }
-  .steps-img{
+
+  .step-img {
     flex: 0 32%;
     margin-right: 0;
     margin-top: 15px;
     margin-bottom: 15px;
   }
-  .steps-text{
-    flex: 100%;
+
+  .step-text {
+    flex: 100%;  
   }
-  .service-grid-container{
+  
+  .service-grid-container {
     grid-template-columns: 1fr 1fr;
   }
-  .service-grid-item.basic{
-    grid-column: 1 /-1;
+
+  .service-grid-item.basic {
+    grid-column: 1;
   }
-  .service-grid-item.both{
+
+  .service-grid-item.both {
     grid-column: 1 / -1;
   }
-  .service-grid-item-cancel {
+
+  .service-grid-item.cancel {
     transform: none;
     writing-mode: unset;
     grid-column: 1 / -1;
     grid-row: -1;
   }
 }
-/*Media Query For Mobile Phones and Smaller */
+
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
 @media screen and (max-width: 575px) {
-  .hero-form button{
+  .hero-form button {
     width: 100%;
   }
+
   .section-title {
     width: 95%;
   }
-  .intro p{
+
+  .intro p {
     width: 100%;
   }
+
   .trainer {
     flex: 0 100%;
   }
-  .contact-info{
+
+  .contact-info {
     text-align: center;
   }
-  .contact-info >*{
+
+  .contact-info > * {
     flex: 0 100%;
   }
-  .contact-form{
+
+  .contact-form {
     order: 3;
   }
 }
